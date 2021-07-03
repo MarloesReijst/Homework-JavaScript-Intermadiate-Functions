@@ -9,7 +9,10 @@
 // getEmailDomain("t.mellink@novi.nl") geeft novi.nl
 // getEmailDomain("a.wiersma@outlook.com") geeft outlook.com
 
-
+// function getEmailDomain (email) {
+    const email = "marloesreijst@gmail.com";
+    console.log(email.toUpperCase());
+// }
 
 
 /* Opdracht  2 */
