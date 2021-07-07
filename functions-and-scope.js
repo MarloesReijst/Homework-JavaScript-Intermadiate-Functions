@@ -59,7 +59,7 @@ function cumLaude(array) {
             amountOfStudents += 1
         }
     }
-    console.log(amountOfStudents)
+    console.log("Het aantal studenten dat Cum Laude is geslaag is " + amountOfStudents)
 }
 
 cumLaude(grades)
@@ -121,7 +121,7 @@ function averageGradeFixed(array) {
         total += array[i]
     }
     const average = total / array.length
-    console.log(average.toFixed(2))
+    console.log("Het gemiddelde cijfer dat is behaald is " + average.toFixed(2))
 }
 
 averageGradeFixed(grades)
@@ -167,7 +167,7 @@ function highestGrade(array) {
             highestNumber = array[i]
         }
     }
-    console.log(highestNumber)
+    console.log("Het hoogste cijfer dat is gehaald is een " + highestNumber)
 }
 
 highestGrade(grades)
