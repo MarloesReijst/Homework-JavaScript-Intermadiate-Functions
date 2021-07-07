@@ -16,6 +16,31 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 
 // ---- Verwachte uitkomst: 6
 
+// Totaal aantal cijfers -> uitkomst 14
+// console.log(grades.length)
+//
+// // Loop die alle cijfers laat zien
+// for (let i = 0; i < grades.length; i++) {
+//     console.log(grades[i])
+// }
+//
+// // Loop die alleen de cijfers laat zien van een 8 of hoger
+//     for (let i = 0; i < grades.length; i++) {
+//         if (grades[i] >= 8) {
+//             console.log(grades[i])
+//     }
+// }
+
+// Loop die alleen 6 laat zien
+let amountOfStudents = 0
+
+for (let i = 0; i < grades.length; i++) {
+    if (grades[i] >= 8) {
+        amountOfStudents += 1
+    }
+}
+
+console.log(amountOfStudents)
 
 /*  1b: Omschrijven tot een herbruikbare functie   */
 // Schrijf een functie genaamd cumLaude, die een array van cijfers verwacht (zoals grades) en het aantal Cum laude studenten teruggeeft. Gebruik hiervoor jouw antwoord van 1a.
@@ -27,8 +52,19 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 // cumLaude([6, 4, 5]) geeft 0
 // cumLaude([8, 9, 4, 6, 10]) geeft 3
 
+function cumLaude(array) {
+    let amountOfStudents = 0
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] >= 8) {
+            amountOfStudents += 1
+        }
+    }
+    console.log("Het aantal studenten dat Cum Laude is geslaag is " + amountOfStudents)
+}
 
-
+cumLaude(grades)
+cumLaude([6, 4, 5])
+cumLaude([8, 9, 4, 6, 10])
 
 /* Opdracht  2: Gemiddeld cijfer */
 
@@ -42,6 +78,15 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 
 // ---- Verwachte uitkomst: 6.642857142857143
 
+let total = 0
+
+for (let i = 0; i < grades.length; i++) {
+    total += grades[i]
+}
+
+const average = total / grades.length
+
+console.log(average)
 
 /* 2b: Omschrijven tot een herbruikbare functie */
 // Schrijf een functie genaamd averageGrade, die een array van cijfers verwacht (zoals grades) en het gemiddelde cijfer teruggeeft. Gebruik hiervoor jouw antwoord van 2a.
@@ -53,12 +98,35 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 // averageGrade([6, 4, 5]) geeft xxxx
 // averageGrade([8, 9, 4, 6, 10]) geeft xxxx
 
+function averageGrade(array) {
+    let total = 0
+    for (let i = 0; i < array.length; i++) {
+        total += array[i]
+    }
+    const average = total / array.length
+    console.log(average)
+}
+
+averageGrade(grades)
+averageGrade([6, 4, 5])
+averageGrade([8, 9, 4, 6, 10])
 
 /* 2c: Afronden op twee decimalen */
 // Zorg ervoor dat het gemiddelde cijfer dat wordt teruggegeven uit de functie netjes wordt afgerond op twee decimalen.
 // Tip: Google is your best friend!
 
+function averageGradeFixed(array) {
+    let total = 0
+    for (let i = 0; i < array.length; i++) {
+        total += array[i]
+    }
+    const average = total / array.length
+    console.log("Het gemiddelde cijfer dat is behaald is " + average.toFixed(2))
+}
 
+averageGradeFixed(grades)
+averageGradeFixed([6, 4, 5])
+averageGradeFixed([8, 9, 4, 6, 10])
 
 
 /* Bonusopdracht: hoogste cijfer */
@@ -72,6 +140,15 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 
 // ---- Verwachte uitkomst: 9
 
+let highestNumber = 0
+
+for (let i = 0; i < grades.length; i++) {
+    if (grades[i] > highestNumber) {
+        highestNumber = grades[i]
+    }
+}
+
+console.log(highestNumber)
 
 /* 3b: Omschrijven tot een herbruikbare functie */
 // Schrijf een functie genaamd highestGrade, die een array van cijfers verwacht (zoals grades) en het hoogste cijfer teruggeeft. Gebruik hiervoor jouw antwoord van 3a.
@@ -82,3 +159,17 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 // highestGrade(grades) geeft 9
 // highestGrade([6, 4, 5]) geeft 6
 // highestGrade([8, 9, 4, 6, 10]) geeft 10
+
+function highestGrade(array) {
+    let highestNumber = 0
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] > highestNumber) {
+            highestNumber = array[i]
+        }
+    }
+    console.log("Het hoogste cijfer dat is gehaald is een " + highestNumber)
+}
+
+highestGrade(grades)
+highestGrade([6, 4, 5])
+highestGrade([8, 9, 4, 6, 10])

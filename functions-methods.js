@@ -9,8 +9,14 @@
 // getEmailDomain("t.mellink@novi.nl") geeft novi.nl
 // getEmailDomain("a.wiersma@outlook.com") geeft outlook.com
 
+function getEmailDomain(email) {
+    console.log(email.substring(email.indexOf("@") + 1, email.length))
+}
 
-
+getEmailDomain("n.eeken@novi-education.nl")
+getEmailDomain("t.mellink@novi.nl")
+getEmailDomain("a.wiersma@outlook.com")
+getEmailDomain("marloesreijst@gmail.com")
 
 /* Opdracht  2 */
 // Schrijf een functie genaamd typeOfEmail, die een emailadres verwacht. De functie checkt of het emailadres een novi domein heeft (medewerker), een novi-education domein (student), of extern domein (zoals gmail of outlook)
@@ -20,7 +26,22 @@
 // typeOfEmail("novi.nlaapjesk@outlook.com") geeft geeft "Extern" <-- deze moet het ook doen!
 // typeOfEmail("a.wiersma@outlook.com") geeft "Extern"
 
+function typeOfEmail(email) {
+    const domain = email.substring(email.indexOf("@") + 1, email.length)
 
+    if (domain == "novi.nl") {
+            console.log(email + " Is een Medewerker")
+    } else if (domain == "novi-education.nl") {
+            console.log(email + " Is een Student")
+    } else {
+            console.log(email + " Komt van Extern")
+    }
+}
+
+typeOfEmail("n.eeken@novi-education.nl")
+typeOfEmail("t.mellink@novi.nl")
+typeOfEmail("novi.nlaapjes@outlook.com")
+typeOfEmail("marloesreijst@gmail.com")
 
 /* Opdracht  3 */
 // Schrijf een functie genaamd checkEmailValidity, die een emailadres verwacht en checkt of het emailadres valide is. De functie returned true of false, afhankelijk van de uitkomst.
@@ -34,3 +55,21 @@
 // checkEmailValidity("n.eekenanovi.nl") geeft false - want geen @
 // checkEmailValidity("n.eeken@novinl.") geeft false - want de punt mag niet als laatst
 // checkEmailValidity("tessmellink@novi,nl") geeft false - want er staat een komma in
+
+function checkEmailValidity (email) {
+    if (email.includes(",")) {
+        console.log(false + " Dit E-mail adres is niet geldig")
+    } else if (email.lastIndexOf(".") == email.length - 1) {
+        console.log(false + " Dit E-mail adres is niet geldig")
+    } else if (email.includes("@")) {
+        console.log(true + " Dit E-mail adres is geldig")
+    } else {
+        console.log(false + " Dit E-mail adres is niet geldig")
+    }
+}
+
+checkEmailValidity("n.eeken@novi.nl")
+checkEmailValidity("tessmellink@novi.nl")
+checkEmailValidity("n.eekennovi.nl")
+checkEmailValidity("n.eeken@novinl.")
+checkEmailValidity("n.eeken@novi,nl")
